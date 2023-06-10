@@ -23,5 +23,15 @@ namespace BYS_UP04
         {
             InitializeComponent();
         }
+
+        private void CityShip(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox combobox = (ComboBox)sender;
+            ComboBoxItem comboBoxItem = (ComboBoxItem)combobox.SelectedItem;
+            if (comboBoxItem == Other)
+            {
+                BoxCityShip.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

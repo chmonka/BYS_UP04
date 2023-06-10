@@ -24,5 +24,12 @@ namespace BYS_UP04
         {
             InitializeComponent();
         }
+
+        private void AddButton(object sender, RoutedEventArgs e)
+        {
+            FormWindow FormWindow = new FormWindow();
+            FormWindow.Show();
+
+        }
     }
 }

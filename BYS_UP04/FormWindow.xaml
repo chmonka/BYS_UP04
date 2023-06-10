@@ -6,50 +6,318 @@
         xmlns:local="clr-namespace:BYS_UP04"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Форма" Height="600" Width="400"
+        Title="Форма" Height="650" Width="480"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{x:Null}"
         AllowsTransparency="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Cursor="">
     <Grid >
-        <Border Margin="20" Background="White" Padding="30" CornerRadius="20">
+        <Border Margin="20" Background="White" Padding="30" CornerRadius="20" Cursor="">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0" />
             </Border.Effect>
-            <Grid>
-                <StackPanel VerticalAlignment="Top"
-                            Margin="75,0">
+            <Grid Margin="0,0,-20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="10" Height="121*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="10" Width="225"/>
+                    <ColumnDefinition MinWidth="10" Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox 
+                        Visibility="Hidden"
+                        x:Name="BoxCityShip"
+                        Style="{StaticResource MaterialDesignTextBox}"
+                         FontSize="10" 
+                         Width="100"
+                         Height="25"
+                         materialDesign:HintAssist.Hint="Другое"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"
+                         BorderThickness="2" 
+                         Margin="0,-115,0,0" 
+                         Grid.Column="1"  />
+
+                <Button Width="100"
+                        Height="25"
+                        FontSize="12"
+                        Content="Загрузить"
+                        Grid.Column="1"
+                        Margin="0,325,0,0" />
+                <Button Width="100"
+                        Height="25"
+                        FontSize="12"
+                        Content="Загрузить"
+                        Grid.Column="1"
+                        Margin="0,260,0,0" />
+                <ComboBox
+                            Height="25"
+                             FontSize="10 "           
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2"
+                             Grid.Column="1" 
+                            Margin="0,237,0,0"
+                            VerticalAlignment="Top">
+                    <ComboBoxItem>Буй</ComboBoxItem>
+                    <ComboBoxItem>Волгореченск</ComboBoxItem>
+                    <ComboBoxItem>Галич</ComboBoxItem>
+                    <ComboBoxItem>Кологрив</ComboBoxItem>
+                    <ComboBoxItem>Кострома</ComboBoxItem>
+                    <ComboBoxItem>Макарьев</ComboBoxItem>
+                    <ComboBoxItem>Мантурово</ComboBoxItem>
+                    <ComboBoxItem>Нерехта</ComboBoxItem>
+                    <ComboBoxItem>Нея</ComboBoxItem>
+                    <ComboBoxItem>Солигалич</ComboBoxItem>
+                    <ComboBoxItem>Чухлома</ComboBoxItem>
+                    <ComboBoxItem>Шарья</ComboBoxItem>
+                </ComboBox>
+
+ 
+
+                <TextBox Style="{StaticResource MaterialDesignTextBox}"
+                         FontSize="10" 
+                         Width="100"
+                         Height="25"
+                         materialDesign:HintAssist.Hint="Другое"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"
+                         BorderThickness="2" 
+                         Margin="0,15,0,0" 
+                         Grid.Column="1"  />
+
+                <StackPanel VerticalAlignment="Top" Grid.RowSpan="2" >
 
                     <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
-                             FontSize="10"  
+                             Width="200"
+                             Height="40"
+                             FontSize="12"  
                              materialDesign:HintAssist.Hint="Фамилия"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
                     <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
-                             FontSize="10"  
+                             Width="200"
+                             FontSize="12"  
                              materialDesign:HintAssist.Hint="Имя"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
                     <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
-                             FontSize="10"  
+                             Width="200"
+                             FontSize="12"  
                              materialDesign:HintAssist.Hint="Отчество"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
+
+                    <ComboBox Margin="0,5,0,0"
+                              Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Пол"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                        <ComboBoxItem>Мужской</ComboBoxItem>
+                        <ComboBoxItem>Женский</ComboBoxItem>
+                    </ComboBox>
+
+
+
                     <DatePicker  
                              Margin="0,5,0,0"
-                             FontSize="10"  
+                             Width="200"
+                             FontSize="12"  
                              materialDesign:HintAssist.Hint="Дата рождения"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
+                    <ComboBox 
+                             SelectionChanged="CityShip"
+                             Margin="0,5,0,0"
+                             Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Гражданство"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                            <ComboBoxItem>Российская Федерация</ComboBoxItem>
+                            <ComboBoxItem>Азербайджан</ComboBoxItem>
+                            <ComboBoxItem>Армения</ComboBoxItem>
+                            <ComboBoxItem>Беларусь</ComboBoxItem>
+                            <ComboBoxItem>Грузия</ComboBoxItem>
+                            <ComboBoxItem>Казахстан</ComboBoxItem>
+                            <ComboBoxItem>Киргизия</ComboBoxItem>
+                            <ComboBoxItem>Молдова</ComboBoxItem>
+                            <ComboBoxItem>Таджикистан</ComboBoxItem>
+                            <ComboBoxItem>Туркменистан</ComboBoxItem>
+                            <ComboBoxItem>Узбекистан</ComboBoxItem>
+                            <ComboBoxItem x:Name="Other">Другое</ComboBoxItem>
+
+                    </ComboBox>
+
+                    <ComboBox 
+                        
+                        Margin="0,5,0,0"
+                              Width="200"
+                              
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Место проживания"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                        <ComboBoxItem>Москва</ComboBoxItem>
+                        <ComboBoxItem>Санкт-Петербург</ComboBoxItem>
+                        <ComboBoxItem>Республика Адыгея</ComboBoxItem>
+                        <ComboBoxItem>Республика Алтай</ComboBoxItem>
+                        <ComboBoxItem>Республика Башкортостан</ComboBoxItem>
+                        <ComboBoxItem>Республика Бурятия</ComboBoxItem>
+                        <ComboBoxItem>Республика Дагестан</ComboBoxItem>
+                        <ComboBoxItem>Республика Ингушетия</ComboBoxItem>
+                        <ComboBoxItem>Республика Кабардино-Балкария</ComboBoxItem>
+                        <ComboBoxItem>Республика Калмыкия</ComboBoxItem>
+                        <ComboBoxItem>Республика Карачаево-Черкессия</ComboBoxItem>
+                        <ComboBoxItem>Республика Карелия</ComboBoxItem>
+                        <ComboBoxItem>Республика Коми</ComboBoxItem>
+                        <ComboBoxItem>Республика Крым</ComboBoxItem>
+                        <ComboBoxItem>Республика Марий Эл</ComboBoxItem>
+                        <ComboBoxItem>Республика Мордовия</ComboBoxItem>
+                        <ComboBoxItem>Республика Саха (Якутия)</ComboBoxItem>
+                        <ComboBoxItem>Республика Северная Осетия-Алания</ComboBoxItem>
+                        <ComboBoxItem>Республика Татарстан</ComboBoxItem>
+                        <ComboBoxItem>Республика Тыва</ComboBoxItem>
+                        <ComboBoxItem>Республика Удмуртия</ComboBoxItem>
+                        <ComboBoxItem>Республика Хакасия</ComboBoxItem>
+                        <ComboBoxItem>Республика Чечня</ComboBoxItem>
+                        <ComboBoxItem>Республика Чувашия</ComboBoxItem>
+                        <ComboBoxItem>Алтайский край</ComboBoxItem>
+                        <ComboBoxItem>Забайкальский край</ComboBoxItem>
+                        <ComboBoxItem>Камчатский край</ComboBoxItem>
+                        <ComboBoxItem>Краснодарский край</ComboBoxItem>
+                        <ComboBoxItem>Красноярский край</ComboBoxItem>
+                        <ComboBoxItem>Пермский край</ComboBoxItem>
+                        <ComboBoxItem>Приморский край</ComboBoxItem>
+                        <ComboBoxItem>Ставропольский край</ComboBoxItem>
+                        <ComboBoxItem>Хабаровский край</ComboBoxItem>
+                        <ComboBoxItem>Амурская область</ComboBoxItem>
+                        <ComboBoxItem>Архангельская область</ComboBoxItem>
+                        <ComboBoxItem>Астраханская область</ComboBoxItem>
+                        <ComboBoxItem>Белгородская область</ComboBoxItem>
+                        <ComboBoxItem>Брянская область</ComboBoxItem>
+                        <ComboBoxItem>Владимирская область</ComboBoxItem>
+                        <ComboBoxItem>Волгоградская область</ComboBoxItem>
+                        <ComboBoxItem>Вологодская область</ComboBoxItem>
+                        <ComboBoxItem>Воронежская область</ComboBoxItem>
+                        <ComboBoxItem>Ивановская область</ComboBoxItem>
+                        <ComboBoxItem>Иркутская область</ComboBoxItem>
+                        <ComboBoxItem>Калининградская область</ComboBoxItem>
+                        <ComboBoxItem>Калужская область</ComboBoxItem>
+                        <ComboBoxItem>Кемеровская область</ComboBoxItem>
+                        <ComboBoxItem>Кировская область</ComboBoxItem>
+                        <ComboBoxItem >Костромская область</ComboBoxItem>
+                        <ComboBoxItem>Курганская область</ComboBoxItem>
+                        <ComboBoxItem>Курская область</ComboBoxItem>
+                        <ComboBoxItem>Ленинградская область</ComboBoxItem>
+                        <ComboBoxItem>Липецкая область</ComboBoxItem>
+                        <ComboBoxItem>Магаданская область</ComboBoxItem>
+                        <ComboBoxItem>Московская область</ComboBoxItem>
+                        <ComboBoxItem>Мурманская область</ComboBoxItem>
+                        <ComboBoxItem>Нижегородская область</ComboBoxItem>
+                        <ComboBoxItem>Новгородская область</ComboBoxItem>
+                        <ComboBoxItem>Новосибирская область</ComboBoxItem>
+                        <ComboBoxItem>Омская область</ComboBoxItem>
+                        <ComboBoxItem>Оренбургская область</ComboBoxItem>
+                        <ComboBoxItem>Орловская область</ComboBoxItem>
+                        <ComboBoxItem>Пензенская область</ComboBoxItem>
+                        <ComboBoxItem>Псковская область</ComboBoxItem>
+                        <ComboBoxItem>Ростовская область</ComboBoxItem>
+                        <ComboBoxItem>Рязанская область</ComboBoxItem>
+                        <ComboBoxItem>Самарская область</ComboBoxItem>
+                        <ComboBoxItem>Саратовская область</ComboBoxItem>
+                        <ComboBoxItem>Сахалинская область</ComboBoxItem>
+                        <ComboBoxItem>Свердловская область</ComboBoxItem>
+                        <ComboBoxItem>Смоленская область</ComboBoxItem>
+                        <ComboBoxItem>Тамбовская область</ComboBoxItem>
+                        <ComboBoxItem>Тверская область</ComboBoxItem>
+                        <ComboBoxItem>Томская область</ComboBoxItem>
+                        <ComboBoxItem>Тульская область</ComboBoxItem>
+                        <ComboBoxItem>Тюменская область</ComboBoxItem>
+                        <ComboBoxItem>Ульяновская область</ComboBoxItem>
+                        <ComboBoxItem>Челябинская область</ComboBoxItem>
+                        <ComboBoxItem>Ярославская область</ComboBoxItem>
+                    </ComboBox>
+
+                    <ComboBox Margin="0,5,0,0"
+                              Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Окончание 9 или 11 классов"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                        <ComboBoxItem>Да</ComboBoxItem>
+                        <ComboBoxItem>Нет</ComboBoxItem>
+                    </ComboBox>
+
+
+
+                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Margin="0,5,0,0"
+                             Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Средний балл аттестата"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2"/>
+
+                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Margin="0,5,0,0"
+                             Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="СНИЛС"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2"/>
+
+                    <ComboBox Margin="0,5,0,0"
+                              Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Справка об инвалидности"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                        <ComboBoxItem>Да</ComboBoxItem>
+                        <ComboBoxItem>Нет</ComboBoxItem>
+                    </ComboBox>
+
+                    <ComboBox Margin="0,5,0,0"
+                              Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Сиротсво , Опекунство"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2">
+                        <ComboBoxItem>Да</ComboBoxItem>
+                        <ComboBoxItem>Нет</ComboBoxItem>
+
+                    </ComboBox>
+
+                    <ComboBox Margin="0,5,0,0"
+                              Width="200"
+                             FontSize="12"  
+                             materialDesign:HintAssist.Hint="Специальность"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             BorderThickness="2" >
+                        <ComboBoxItem>Архитектура</ComboBoxItem>
+                        <ComboBoxItem>Гидрогеология и инженерная геология</ComboBoxItem>
+                        <ComboBoxItem>Информационные системы и программирование</ComboBoxItem>
+                        <ComboBoxItem>Строительство и эксплуатация зданий и сооружений</ComboBoxItem>
+                        <ComboBoxItem>Разработка электронных устройств и систем</ComboBoxItem>
+                    </ComboBox>
+                    <Button Width="200"
+                        Height="25"
+                        FontSize="12"
+                        Content="Загрузить Аттестат"
+                        Grid.Column="1"
+                        Margin="0,5,0,0"/>
+
+
+
 
                 </StackPanel>
+
             </Grid>
         </Border>
 
