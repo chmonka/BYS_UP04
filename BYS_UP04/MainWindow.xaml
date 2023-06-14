@@ -5,11 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BYS_UP04"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="900"
+        Title="Таблица" MinHeight="780" MinWidth="900" MaxHeight="780" MaxWidth="900"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{x:Null}"
-        AllowsTransparency="True"
-        WindowStyle="None"
+        Background="#808080"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Border Margin="20" Background="White" Padding="30" CornerRadius="20">
@@ -18,23 +16,41 @@
             </Border.Effect>
             <Grid Margin="0,0,-20,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="10" Height="200*"/>
-                    <RowDefinition MinHeight="10" Height="200*"/>
-                    <RowDefinition MinHeight="10" Height="200*"/>
-                    <RowDefinition MinHeight="10" Height="200*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="450"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="10" Width="250"/>
-                    <ColumnDefinition MinWidth="10" Width="325"/>
-                    <ColumnDefinition MinWidth="10" Width="325"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel 
-                            VerticalAlignment="Center"
+                <StackPanel Grid.Column="0" Grid.Row="1">
+                    <DataGrid Name="WorkersGrid" IsReadOnly="True" AutoGenerateColumns="False" Background="White">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Surname}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата рождения" Binding="{Binding DataBirth}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Пол" Binding="{Binding Floor}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Гражданство" Binding="{Binding Citizenship}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Место проживания" Binding="{Binding PlaceResidence}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Окончание классов" Binding="{Binding Graduation}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Средний балл аттестата" Binding="{Binding Certificate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="СНИЛС" Binding="{Binding SNILS}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Справка об инвалидности" Binding="{Binding Disability}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Сиротсво/Опекуество" Binding="{Binding Orphanhood}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Специальность" Binding="{Binding Speciality}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер аттестата" Binding="{Binding NumberCertificate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Бюджет/Небюджет" Binding="{Binding Budget}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Зачислен/Незачислен" Binding="{Binding Enlisted}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата приёма" Binding="{Binding DataReception}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+                <StackPanel
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
-                            Grid.Column="1"
-                            Grid.Row="4" >
-                            <Button 
+                            VerticalAlignment="Center"
+                            Grid.Row="2">
+                    <Button 
                                 Click="AddButton"
                                 Margin="5,60,0,0"
                                 Width="100"
@@ -43,23 +59,22 @@
                                 Content="Добавить"
                                 Grid.Column="2"
                                 Grid.Row="4"/>
-                            <Button 
+                    <Button 
                                 Margin="5,60,0,0"
                                 Width="100"
                                 Height="25"
                                 FontSize="12"
                                 Content="Изменить"/>
-                            <Button 
+                    <Button 
                                 Margin="5,60,0,0"
                                 Width="100"
                                 Height="25"
                                 FontSize="12"
                                 Content="Удалить"
                                 Grid.Column="2"
-                                Grid.Row="4"/>  
+                                Grid.Row="4"/>
                 </StackPanel>
             </Grid>
-
         </Border>
     </Grid>
 </Window>

@@ -32,6 +32,48 @@ namespace BYS_UP04
             {
                 BoxCityShip.Visibility = Visibility.Visible;
             }
+            else
+            {
+                BoxCityShip.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void PlaceResidence(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox combobox1=(ComboBox)sender;
+            ComboBoxItem comboBoxItem1=(ComboBoxItem)combobox1.SelectedItem;
+            if(comboBoxItem1 == PlaceResidenceKostroma)
+            {
+               ComboBoxPlaceResidence.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ComboBoxPlaceResidence.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Class911(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox combobox2 = (ComboBox)sender;
+            ComboBoxItem comboBoxItem2=(ComboBoxItem)combobox2.SelectedItem;
+            if (comboBoxItem2 == NoClass) 
+            {
+                ComboBoxClass.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ComboBoxClass.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ComboBoxPlaceResidence_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
