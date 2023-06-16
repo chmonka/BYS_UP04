@@ -15,20 +15,23 @@ namespace BYS_UP04
         private string name;
         private string surname;
         private string patronymic;
-        private string dataBirth;
+        private DateTime dataBirth;
         private string floor;
         private string citizenship;
         private string placeResidence;
         private string graduation;
-        private byte[] certificate;
+        private double certificate;
         private string sNILS;
-        private byte[] disability;
-        private byte[] orphanhood;
+        private string disability;
+        private byte[] disabilityScan;
+        private string orphanhood;
+        private byte[] orphanhoodScan;
         private string speciality;
-        private double numberCertificate;
+        private string numberCertificate;
+        private byte[] numberCertificateScan;
         private string budget;
         private string enlisted;
-        private string dataReception;
+        private DateTime dataReception;
 
         public string Name
         {
@@ -60,7 +63,7 @@ namespace BYS_UP04
             }
         }
 
-        public string DataBirth
+        public DateTime DataBirth
         {
             get => dataBirth;
             set
@@ -110,7 +113,7 @@ namespace BYS_UP04
             }
         }
 
-        public byte[] Certificate
+        public double Certificate
         {
             get => certificate;
             set
@@ -130,7 +133,7 @@ namespace BYS_UP04
             }
         }
 
-        public byte[] Disability
+        public string Disability
         {
             get => disability;
             set
@@ -140,7 +143,7 @@ namespace BYS_UP04
             }
         }
 
-        public byte[] Orphanhood
+        public string Orphanhood
         {
             get => orphanhood;
             set
@@ -160,7 +163,7 @@ namespace BYS_UP04
             }
         }
 
-        public double NumberCertificate
+        public string NumberCertificate
         {
             get => numberCertificate;
             set
@@ -190,7 +193,7 @@ namespace BYS_UP04
             }
         }
 
-        public string DataReception
+        public DateTime DataReception
         {
             get => dataReception;
             set

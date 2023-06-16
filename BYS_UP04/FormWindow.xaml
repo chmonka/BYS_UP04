@@ -79,23 +79,29 @@
                          BorderBrush="{DynamicResource MaterialDesignDivider}"
                          BorderThickness="2" 
                          VerticalAlignment="Center"
-                             Margin="0,8,0,0"
+                         Margin="0,8,0,0"
                          Grid.Column="1"  />
-                    <Button Width="100"
+                    <Button 
+                        x:Name="ButtonDisability"
+                        Width="100"
                         Height="25"
                         FontSize="12"
                         Content="Загрузить"
-                        Grid.Column="1" Click="Button_Click"
+                        Grid.Column="1" 
                             Margin="0,98,0,0"
                        />
-                    <Button Width="100"
+                    <Button 
+                       x:Name="ButtonOrphanhoodBox"
+                        Width="100"
                         Height="25"
                         FontSize="12"
                         Content="Загрузить"
                         Grid.Column="1"
                             Margin="0,8,0,0"
                          />
-                    <Button Width="100"
+                    <Button 
+                       
+                        Width="100"
                         Height="25"
                         FontSize="12"
                         Content="Загрузить"
@@ -108,16 +114,20 @@
                 <StackPanel VerticalAlignment="Top"  >
                     
 
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                        Text="{Binding Name }"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              Height="40"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Фамилия"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
-                             BorderThickness="2"/>
+                             BorderThickness="2" Cursor=""/>
 
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                         Text="{Binding Surname }"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -125,7 +135,9 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                         Text="{Binding Patronymic }"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -133,7 +145,9 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox
+                          Text="{Binding Floor }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Пол"
@@ -147,6 +161,8 @@
 
 
                     <DatePicker  
+                          x:Name="DateBirth"
+                        SelectedDateChanged="DateBirth_SelectedDateChanged"
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -155,6 +171,7 @@
                              BorderThickness="2"/>
 
                     <ComboBox 
+                         Text="{Binding Citizenship }"
                              SelectionChanged="CityShip"
                              Margin="0,5,0,0"
                              Width="200"
@@ -178,6 +195,7 @@
                     </ComboBox>
 
                     <ComboBox 
+                          Text="{Binding PlaceResidence }"
                          SelectionChanged="PlaceResidence"
                             Margin="0,5,0,0"
                              Width="200"
@@ -268,6 +286,7 @@
                     </ComboBox>
 
                     <ComboBox 
+                          Text="{Binding Graduation }"
                           SelectionChanged="Class911"
                         Margin="0,5,0,0"
                               Width="200"
@@ -281,7 +300,9 @@
 
 
 
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                           Text="{Binding Certificate}"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -289,7 +310,9 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                        Text="{Binding SNILS }"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -297,28 +320,38 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox
+                         SelectionChanged="DisabilityBox"
+                        
+                        Text="{Binding Disability }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Справка об инвалидности"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2">
                         <ComboBoxItem>Да</ComboBoxItem>
-                        <ComboBoxItem>Нет</ComboBoxItem>
+                        <ComboBoxItem x:Name="NoDisabilityBox" >Нет</ComboBoxItem>
                     </ComboBox>
 
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox
+                         SelectionChanged="OrphanhoodBox"
+                        
+                           Text="{Binding Orphanhood }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Сиротсво , Опекунство"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2">
                         <ComboBoxItem>Да</ComboBoxItem>
-                        <ComboBoxItem>Нет</ComboBoxItem>
+                        <ComboBoxItem x:Name="NoOrphanhoodBox">Нет</ComboBoxItem>
 
                     </ComboBox>
 
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox 
+                        Text="{Binding Speciality }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Специальность"
@@ -330,7 +363,9 @@
                         <ComboBoxItem>Строительство и эксплуатация зданий и сооружений</ComboBoxItem>
                         <ComboBoxItem>Разработка электронных устройств и систем</ComboBoxItem>
                     </ComboBox>
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox 
+                        Text="{Binding NumberCertificate }"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -338,7 +373,9 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2"/>
 
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox 
+                        Text="{Binding Budget }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Бюджет/Небюджет"
@@ -347,16 +384,20 @@
                         <ComboBoxItem>Бюджет</ComboBoxItem>
                         <ComboBoxItem>Небюджет</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox Margin="0,5,0,0"
+                    <ComboBox 
+                          Text="{Binding Enlisted }"
+                        Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
-                             materialDesign:HintAssist.Hint="Зачислоен/Незачислен"
+                             materialDesign:HintAssist.Hint="Зачислоен(-на)/Незачислен(-на)"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2" >
-                        <ComboBoxItem>Зачислен</ComboBoxItem>
-                        <ComboBoxItem>Незачислен</ComboBoxItem>
+                        <ComboBoxItem>Зачислен(-на)</ComboBoxItem>
+                        <ComboBoxItem>Незачислен(-на)</ComboBoxItem>
                     </ComboBox>
                     <DatePicker  
+                          x:Name="DatePriema"
+                        SelectedDateChanged="DatePriema_SelectedDateChanged"
                              Margin="0,5,0,0"
                              Width="200"
                              FontSize="12"  
@@ -374,6 +415,7 @@
                         Height="25"
                         FontSize="12"
                         Content="Добавить"
+                        Click="AddForm"
                         Grid.Column="0"
                         Grid.Row="1"
                             Margin="100,0,0,0"

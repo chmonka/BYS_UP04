@@ -19,9 +19,20 @@ namespace BYS_UP04
     /// </summary>
     public partial class FormWindow : Window
     {
-        public FormWindow()
+
+        public Enrollee Enrollee {get; private set; }
+        public FormWindow(Enrollee enrollee )
         {
             InitializeComponent();
+            Enrollee = enrollee;
+            DataContext = Enrollee;
+
+
+        }
+
+        private void AddForm(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
 
         private void CityShip(object sender, SelectionChangedEventArgs e)
@@ -66,14 +77,44 @@ namespace BYS_UP04
             }
         }
 
-        private void ComboBoxPlaceResidence_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void DisabilityBox(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox combobox3 = (ComboBox)sender;
+            ComboBoxItem comboBoxItem2 = (ComboBoxItem)combobox3.SelectedItem;
+            if (comboBoxItem2 == NoDisabilityBox)
+            {
+                ButtonDisability.Visibility = Visibility.Hidden;
+            }
+            else  
+            {
+                ButtonDisability.Visibility = Visibility.Visible;
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OrphanhoodBox(object sender, SelectionChangedEventArgs e)
         {
+            ComboBox combobox3 = (ComboBox)sender;
+            ComboBoxItem comboBoxItem2 = (ComboBoxItem)combobox3.SelectedItem;
+            if (comboBoxItem2 == NoOrphanhoodBox)
+            {
+                ButtonOrphanhoodBox.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                ButtonOrphanhoodBox.Visibility = Visibility.Visible;
+            }
+        }
 
+
+        private void DatePriema_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Enrollee.DataReception = DatePriema.SelectedDate.GetValueOrDefault();
+        }
+
+        private void DateBirth_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Enrollee.DataBirth = DateBirth.SelectedDate.GetValueOrDefault();
         }
     }
 }
