@@ -19,8 +19,12 @@ namespace BYS_UP04
     /// </summary>
     public partial class FormWindow : Window
     {
+       
+
 
         public Enrollee Enrollee {get; private set; }
+    
+
         public FormWindow(Enrollee enrollee )
         {
             InitializeComponent();
@@ -32,7 +36,40 @@ namespace BYS_UP04
 
         private void AddForm(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+
+
+
+            if (string.IsNullOrEmpty(Surname.Text))
+            {
+                MessageBox.Show("Заполните поле 'Фамилия' ");
+
+            }
+
+            else if (string.IsNullOrEmpty(Name.Text))
+            {
+                MessageBox.Show("Заполните поле 'Имя' ");
+            }
+
+            else if (string.IsNullOrEmpty(Patronymic.Text))
+            {
+                MessageBox.Show("Заполните поле 'Отчество' ");
+            }
+
+            else if (string.IsNullOrEmpty(Citizenship.Text))
+            {
+                MessageBox.Show("Заполните поле 'Гражданство' ");
+            }
+
+            else if (string.IsNullOrEmpty(PlaceResidences.Text))
+            {
+                MessageBox.Show("Заполните поле 'Место проживания' ");
+                
+            }
+
+            else
+            {
+                DialogResult = true;
+            }
             
         }
 

@@ -14,8 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-
+using OfficeOpenXml;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Data.SqlClient;
 
 
 
@@ -26,6 +28,8 @@ namespace BYS_UP04
     /// </summary>
     public partial class MainWindow : Window
     {
+       
+
         DBcontext dbcontext = new DBcontext();
 
         public void Mainwindowloaded(object sender, RoutedEventArgs e)
@@ -131,6 +135,13 @@ namespace BYS_UP04
                 }
             }
         }
+
+        private void CreateExcelfile(object sender, RoutedEventArgs e)
+        {
+            Exportexcel ExcelExport = new Exportexcel();
+            ExcelExport.CreateExcelfile(dbcontext.Enrollees.Local.ToObservableCollection());
+        }
+
 
         List<Enrollee> filterModeList = new List<Enrollee>();
         private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)

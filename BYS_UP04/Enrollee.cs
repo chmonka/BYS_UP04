@@ -42,7 +42,9 @@ namespace BYS_UP04
         public Enrollee(  
             string Name, 
             string Surname, 
-            string Patronymic)
+            string Patronymic,
+            string citizenship,
+            string placeResidence)
 
         {
             int id = Id;
@@ -50,6 +52,10 @@ namespace BYS_UP04
             this.name = Name;
             this.surname = Surname;
             this.patronymic = Patronymic;
+            this.citizenship = Citizenship;
+            this.placeResidence= PlaceResidence;
+            
+            
 
         }
 

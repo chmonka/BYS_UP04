@@ -13,7 +13,7 @@
 
         WindowStartupLocation="CenterScreen" Cursor="">
     <Grid >
-
+        
         <Border Margin="20" Background="White" Padding="30" CornerRadius="20" Cursor="">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0" />
@@ -119,8 +119,9 @@
                 <StackPanel VerticalAlignment="Top"  >
 
 
-                    <TextBox                         
-                             Text="{Binding Name }"
+                    <TextBox    
+                             x:Name="Surname"
+                             Text="{Binding Surname}"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
@@ -133,7 +134,8 @@
 
                     </TextBox>
                     <TextBox 
-                         Text="{Binding Surname }"
+                         x:Name="Name"
+                         Text="{Binding Name}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
@@ -143,6 +145,7 @@
                              BorderThickness="2"/>
 
                     <TextBox 
+                        x:Name="Patronymic"
                          Text="{Binding Patronymic }"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
@@ -178,6 +181,7 @@
                              BorderThickness="2"/>
 
                     <ComboBox 
+                        x:Name="Citizenship"
                          Text="{Binding Citizenship }"
                              SelectionChanged="CityShip"
                              Margin="0,5,0,0"
@@ -202,6 +206,7 @@
                     </ComboBox>
 
                     <ComboBox 
+                        x:Name="PlaceResidences"
                           Text="{Binding PlaceResidence }"
                          SelectionChanged="PlaceResidence"
                             Margin="0,5,0,0"
