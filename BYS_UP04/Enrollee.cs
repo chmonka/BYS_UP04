@@ -12,6 +12,7 @@ namespace BYS_UP04
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int Id { get; set; }
+
         private string name;
         private string surname;
         private string patronymic;
@@ -19,6 +20,7 @@ namespace BYS_UP04
         private string floor;
         private string citizenship;
         private string placeResidence;
+        private string city;
         private string graduation;
         private double certificate;
         private string sNILS;
@@ -32,6 +34,25 @@ namespace BYS_UP04
         private string budget;
         private string enlisted;
         private DateTime dataReception;
+
+        public Enrollee()
+        {
+
+        }
+        public Enrollee(  
+            string Name, 
+            string Surname, 
+            string Patronymic)
+
+        {
+            int id = Id;
+            this.Id= id;
+            this.name = Name;
+            this.surname = Surname;
+            this.patronymic = Patronymic;
+
+        }
+
 
         public string Name
         {
@@ -99,6 +120,17 @@ namespace BYS_UP04
             set
             {
                 placeResidence = value;
+                OnPropertyChanged(nameof(PlaceResidence));
+            }
+        }
+
+
+        public string City
+        {
+            get => city;
+            set
+            {
+                city = value;
                 OnPropertyChanged(nameof(PlaceResidence));
             }
         }

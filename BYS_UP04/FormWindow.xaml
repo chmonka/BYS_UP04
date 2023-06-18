@@ -13,6 +13,7 @@
 
         WindowStartupLocation="CenterScreen" Cursor="">
     <Grid >
+
         <Border Margin="20" Background="White" Padding="30" CornerRadius="20" Cursor="">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0" />
@@ -29,7 +30,7 @@
 
                 </Grid.ColumnDefinitions>
                 
-                <StackPanel VerticalAlignment="Top" Grid.Column="1">
+                <StackPanel VerticalAlignment="Top" Grid.Column="1" Cursor="">
                 <TextBox 
                       Visibility="Hidden"
                         x:Name="BoxCityShip"
@@ -46,6 +47,7 @@
 
 
                 <ComboBox
+                    Text="{Binding City}"
                       Visibility="Hidden"
                     x:Name="ComboBoxPlaceResidence"
                              FontSize="10 "           
@@ -68,19 +70,22 @@
                 </ComboBox>
 
 
-                <TextBox 
-                         Visibility="Hidden"
-                         x:Name="ComboBoxClass"
-                         Style="{StaticResource MaterialDesignTextBox}"
-                         FontSize="10" 
-                         Width="100"
-                         Height="25"
-                         materialDesign:HintAssist.Hint="Другое"
-                         BorderBrush="{DynamicResource MaterialDesignDivider}"
-                         BorderThickness="2" 
-                         VerticalAlignment="Center"
-                         Margin="0,8,0,0"
-                         Grid.Column="1"  />
+                    <TextBox 
+                        Visibility="Hidden"
+                        x:Name="ComboBoxClass"
+                        Style="{StaticResource MaterialDesignTextBox}"
+                        FontSize="10" 
+                        Width="100"
+                        Height="25"
+                        materialDesign:HintAssist.Hint="Другое"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}"
+                        BorderThickness="2" 
+                        VerticalAlignment="Center"
+                        Margin="0,8,0,0"
+                        Grid.Column="1"  >
+>
+
+                    </TextBox>
                     <Button 
                         x:Name="ButtonDisability"
                         Width="100"
@@ -112,19 +117,21 @@
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Top"  >
-                    
 
-                    <TextBox 
-                        Text="{Binding Name }"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+
+                    <TextBox                         
+                             Text="{Binding Name }"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin="0,5,0,0"
                              Width="200"
                              Height="40"
                              FontSize="12"  
                              materialDesign:HintAssist.Hint="Фамилия"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
-                             BorderThickness="2" Cursor=""/>
+                             BorderThickness="2" Cursor="" >
 
+
+                    </TextBox>
                     <TextBox 
                          Text="{Binding Surname }"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 

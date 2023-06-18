@@ -33,6 +33,7 @@ namespace BYS_UP04
         private void AddForm(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+            
         }
 
         private void CityShip(object sender, SelectionChangedEventArgs e)

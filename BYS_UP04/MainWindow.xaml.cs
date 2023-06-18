@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
+
+
 namespace BYS_UP04
 {
     /// <summary>
@@ -38,6 +42,8 @@ namespace BYS_UP04
             Loaded += Mainwindowloaded;
         }
 
+
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             FormWindow FormWindow = new FormWindow(new Enrollee());
@@ -53,7 +59,7 @@ namespace BYS_UP04
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
-            Enrollee? Staff = List.SelectedItem as Enrollee;
+            Enrollee? Staff = StudentList.SelectedItem as Enrollee;
 
             if (Staff is null) return;
             dbcontext.Enrollees.Remove(Staff);
@@ -65,12 +71,13 @@ namespace BYS_UP04
         private void Info_click(object sender, RoutedEventArgs e)
         {
 
-            Enrollee user = List.SelectedItem as Enrollee;
+            Enrollee user = StudentList.SelectedItem as Enrollee;
 
             if (user is null) return;
 
             FormWindow UserWindow = new FormWindow(new Enrollee
             {
+                Id = user.Id,
                 Name = user.Name,
                 Surname = user.Surname,
                 Patronymic = user.Patronymic,
@@ -78,6 +85,7 @@ namespace BYS_UP04
                 Floor = user.Floor,
                 Citizenship = user.Citizenship,
                 PlaceResidence = user.PlaceResidence,
+                City = user.City,
                 Graduation = user.Graduation,
                 Certificate = user.Certificate,
                 SNILS = user.SNILS,
@@ -98,20 +106,72 @@ namespace BYS_UP04
                 user = dbcontext.Enrollees.Find(UserWindow.Enrollee.Id);
                 if (user != null)
                 {
-
+                    user.Id = UserWindow.Enrollee.Id;
                     user.Name = UserWindow.Enrollee.Name;
                     user.Surname = UserWindow.Enrollee.Surname;
-                    user.Patronymic  = UserWindow.Enrollee.Patronymic;
+                    user.Patronymic = UserWindow.Enrollee.Patronymic;
                     user.DataBirth = UserWindow.Enrollee.DataBirth;
+                    user.Floor = UserWindow.Enrollee.Floor;
+                    user.Citizenship = UserWindow.Enrollee.Citizenship;
+                    user.PlaceResidence = UserWindow.Enrollee.PlaceResidence;
+                    user.City = UserWindow.Enrollee.City;
+                    user.Graduation = UserWindow.Enrollee.Graduation;
+                    user.Certificate = UserWindow.Enrollee.Certificate;
+                    user.SNILS = UserWindow.Enrollee.SNILS;
+                    user.Disability = UserWindow.Enrollee.Disability;
+                    user.Orphanhood = UserWindow.Enrollee.Orphanhood;
+                    user.Speciality = UserWindow.Enrollee.Speciality;
+                    user.NumberCertificate = UserWindow.Enrollee.NumberCertificate;
+                    user.Budget = UserWindow.Enrollee.Budget;
+                    user.Enlisted = UserWindow.Enrollee.Enlisted;
+                    user.DataReception = UserWindow.Enrollee.DataReception;
 
                     dbcontext.SaveChanges();
-                    List.Items.Refresh();
+                    StudentList.Items.Refresh();
                 }
             }
         }
+
+        List<Enrollee> filterModeList = new List<Enrollee>();
+        private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            filterModeList.Clear();
+
+            if (textBoxSearch.Text.Equals(""))
+            {
+                List<Enrollee> studentList = new List<Enrollee>();
+                using (var db = new DBcontext())
+                {
+                    var query = from b in db.Enrollees select b;
+                    foreach (var item in query)
+                    {
+                        studentList.Add(item);
+                    }
+                }
+                StudentList.ItemsSource = studentList;
+            }
+            else
+            {
+                List<Enrollee> studentList = new List<Enrollee>();
+                using (var db = new DBcontext())
+                {
+                    var query = from b in db.Enrollees select b;
+                    foreach (var item in query)
+                    {
+                        if (item.Name.Contains(textBoxSearch.Text) || item.Surname.Contains(textBoxSearch.Text)
+                            || item.Patronymic.Contains(textBoxSearch.Text))
+                        {
+                            studentList.Add(item);
+                        }
+                        
+                    }
+                }
+                StudentList.ItemsSource = studentList;
+            }
+
+        }
     }
 }
-
            
 
         
