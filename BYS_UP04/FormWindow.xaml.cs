@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -122,11 +123,11 @@ namespace BYS_UP04
             ComboBoxItem comboBoxItem2 = (ComboBoxItem)combobox3.SelectedItem;
             if (comboBoxItem2 == NoDisabilityBox)
             {
-                ButtonDisability.Visibility = Visibility.Hidden;
+                DisabilityScan.Visibility = Visibility.Hidden;
             }
             else  
             {
-                ButtonDisability.Visibility = Visibility.Visible;
+                DisabilityScan.Visibility = Visibility.Visible;
             }
         }
 
@@ -136,11 +137,11 @@ namespace BYS_UP04
             ComboBoxItem comboBoxItem2 = (ComboBoxItem)combobox3.SelectedItem;
             if (comboBoxItem2 == NoOrphanhoodBox)
             {
-                ButtonOrphanhoodBox.Visibility = Visibility.Hidden;
+                OrphanhoodScan.Visibility = Visibility.Hidden;
             }
             else
             {
-                ButtonOrphanhoodBox.Visibility = Visibility.Visible;
+                OrphanhoodScan.Visibility = Visibility.Visible;
             }
         }
 
@@ -154,5 +155,8 @@ namespace BYS_UP04
         {
             Enrollee.DataBirth = DateBirth.SelectedDate.GetValueOrDefault();
         }
+
+
+
     }
 }

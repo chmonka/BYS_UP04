@@ -21,6 +21,8 @@ namespace BYS_UP04
         private string citizenship;
         private string placeResidence;
         private string city;
+        private string cityship;
+        public  string classSchool;
         private string graduation;
         private double certificate;
         private string sNILS;
@@ -44,7 +46,23 @@ namespace BYS_UP04
             string Surname, 
             string Patronymic,
             string citizenship,
-            string placeResidence)
+            DateTime dataBirth,
+            string placeResidence,
+            string city,
+            string cityship,
+            string classSchool,
+            string graduation,
+            double certificate,
+            string sNILS,
+            string disability,
+            string orphanhood,
+            string speciality,
+            string numberCertificate,
+            string budget,
+            string enlisted,
+            DateTime dataReception
+
+            )
 
         {
             int id = Id;
@@ -52,13 +70,62 @@ namespace BYS_UP04
             this.name = Name;
             this.surname = Surname;
             this.patronymic = Patronymic;
+            Citizenship = citizenship;
+            DataBirth = dataBirth;
+            PlaceResidence = placeResidence;
+            City = city;
+            this.cityship = cityship;
+            ClassSchool = classSchool;
+            Graduation = graduation;
+            Certificate = certificate;
+            SNILS = sNILS;
+            Disability = disability;
+            Orphanhood = orphanhood;
+            Speciality = speciality;
+            NumberCertificate = numberCertificate;
+            Budget = budget;
+            Enlisted = enlisted;
+            DataReception = dataReception;
             this.citizenship = Citizenship;
             this.placeResidence= PlaceResidence;
+            this.city = City;
+            this.certificate = Certificate;
+            this.sNILS = SNILS;
+            this.disability = Disability;
+            this.orphanhood = Orphanhood;
+            this.speciality = Speciality;
+            this.numberCertificate = NumberCertificate;
+            this.budget = Budget;
+            this.enlisted = Enlisted;
+            this.dataReception = DataReception;
+            this.floor=Floor;
+            this.dataBirth=DataBirth;
+
             
             
 
         }
 
+
+        public string ClassSchool
+        {
+            get => classSchool;
+            set
+            {
+                classSchool = value;
+                OnPropertyChanged(nameof(ClassSchool));
+            }
+        }
+
+        public string CityShip
+        {
+            get => cityship;
+            set
+            {
+                cityship = value;
+                OnPropertyChanged(nameof(CityShip));
+            }
+        }
 
         public string Name
         {
@@ -245,6 +312,8 @@ namespace BYS_UP04
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        
     }
 }
 

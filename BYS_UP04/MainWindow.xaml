@@ -50,9 +50,11 @@
                             <DataGridTextColumn Header="Дата рождения" Binding="{Binding DataBirth}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Пол" Binding="{Binding Floor}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Гражданство" Binding="{Binding Citizenship}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Гражданство(Другое)" Binding="{Binding CityShip}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место проживания" Binding="{Binding PlaceResidence}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Город" Binding="{Binding City}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Окончание классов" Binding="{Binding Graduation}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Окончание 9(11) классов " Binding="{Binding Graduation}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Окончание 9(11) классов(Другое)" Binding="{Binding ClassSchool}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Средний балл аттестата" Binding="{Binding Certificate}"></DataGridTextColumn>
                             <DataGridTemplateColumn Header="Скан">
                                 <DataGridTemplateColumn.CellTemplate>

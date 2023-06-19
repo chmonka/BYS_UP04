@@ -32,18 +32,18 @@
                 
                 <StackPanel VerticalAlignment="Top" Grid.Column="1" Cursor="">
                 <TextBox 
+                      Text="{Binding CityShip}"
                       Visibility="Hidden"
-                        x:Name="BoxCityShip"
-                        Style="{StaticResource MaterialDesignTextBox}"
-                         FontSize="10" 
-                         Width="100"
-                         Height="25"
-                         materialDesign:HintAssist.Hint="Другое"
-                         BorderBrush="{DynamicResource MaterialDesignDivider}"
-                         BorderThickness="2" 
-                         Grid.Column="1"
-                    Margin="0,204.5,0,0"
-                    />
+                      x:Name="BoxCityShip"
+                      Style="{StaticResource MaterialDesignTextBox}"
+                      FontSize="10" 
+                      Width="100"
+                      Height="25"
+                      materialDesign:HintAssist.Hint="Другое"
+                      BorderBrush="{DynamicResource MaterialDesignDivider}"
+                      BorderThickness="2" 
+                      Grid.Column="1"
+                      Margin="0,204.5,0,0"/>
 
 
                 <ComboBox
@@ -71,6 +71,7 @@
 
 
                     <TextBox 
+                        Text="{Binding ClassSchool}"
                         Visibility="Hidden"
                         x:Name="ComboBoxClass"
                         Style="{StaticResource MaterialDesignTextBox}"
@@ -82,21 +83,19 @@
                         BorderThickness="2" 
                         VerticalAlignment="Center"
                         Margin="0,8,0,0"
-                        Grid.Column="1"  >
->
-
-                    </TextBox>
+                        Grid.Column="1" />
                     <Button 
-                        x:Name="ButtonDisability"
+                        x:Name="DisabilityScan"
                         Width="100"
                         Height="25"
                         FontSize="12"
                         Content="Загрузить"
                         Grid.Column="1" 
-                            Margin="0,98,0,0"
+                        Margin="0,98,0,0" 
                        />
+                    
                     <Button 
-                       x:Name="ButtonOrphanhoodBox"
+                       x:Name="OrphanhoodScan"
                         Width="100"
                         Height="25"
                         FontSize="12"

@@ -18,8 +18,12 @@ using OfficeOpenXml;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Data.SqlClient;
-
-
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
+using Microsoft.Win32;
+using System.Drawing;
+using System.Data;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace BYS_UP04
 {
@@ -100,6 +104,9 @@ namespace BYS_UP04
                 Budget = user.Budget,
                 Enlisted = user.Enlisted,
                 DataReception = user.DataReception,
+                CityShip = user.CityShip,
+                ClassSchool = user.ClassSchool,
+
 
             });
 
@@ -125,10 +132,12 @@ namespace BYS_UP04
                     user.Disability = UserWindow.Enrollee.Disability;
                     user.Orphanhood = UserWindow.Enrollee.Orphanhood;
                     user.Speciality = UserWindow.Enrollee.Speciality;
-                    user.NumberCertificate = UserWindow.Enrollee.NumberCertificate;
+                    user.NumberCertificate= UserWindow.Enrollee.NumberCertificate;
                     user.Budget = UserWindow.Enrollee.Budget;
                     user.Enlisted = UserWindow.Enrollee.Enlisted;
                     user.DataReception = UserWindow.Enrollee.DataReception;
+                    user.ClassSchool = UserWindow.Enrollee.ClassSchool;
+                    user.CityShip = UserWindow.Enrollee.CityShip;
 
                     dbcontext.SaveChanges();
                     StudentList.Items.Refresh();
@@ -170,7 +179,7 @@ namespace BYS_UP04
                     foreach (var item in query)
                     {
                         if (item.Name.Contains(textBoxSearch.Text) || item.Surname.Contains(textBoxSearch.Text)
-                            || item.Patronymic.Contains(textBoxSearch.Text))
+                            || item.Patronymic.Contains(textBoxSearch.Text) || item.City.Contains(textBoxSearch.Text) || item.SNILS.Contains(textBoxSearch.Text))
                         {
                             studentList.Add(item);
                         }
@@ -180,7 +189,10 @@ namespace BYS_UP04
                 StudentList.ItemsSource = studentList;
             }
 
+           
+            
         }
+        
     }
 }
            

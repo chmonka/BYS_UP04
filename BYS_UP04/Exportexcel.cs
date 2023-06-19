@@ -12,26 +12,31 @@ namespace BYS_UP04
 {
     internal class Exportexcel
     {
+      
+
         public void CreateExcelfile(ObservableCollection<Enrollee> data)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             ExcelPackage staff = new ExcelPackage();
             ExcelWorksheet sheet = staff.Workbook.Worksheets.Add("Лист");
-            string[] headers = { "Индитификатор сотрудника", "Фамилия", "Имя", "Отчество", "Дата рождения", "Номер телефона", "Отдел" };
+            string[] headers = { "Фамилия", "Имя", "Отчество" };
+
             for (int i = 1; i <= headers.Length; i++)
             {
                 sheet.Cells[1, i].Value = headers[i - 1];
             }
             int currString = 2;
+
             foreach (var person in data)
             {
                 
-                sheet.Cells[currString, 2].Value = person.Surname;
-                sheet.Cells[currString, 3].Value = person.Name;
-                sheet.Cells[currString, 5].Value = person.Patronymic;
+                sheet.Cells[currString, 1].Value = person.Surname;
+                sheet.Cells[currString, 2].Value = person.Name;
+                sheet.Cells[currString, 3].Value = person.Patronymic;
 
                 currString += 1;
             }
+
             for (int i = 1; i <= headers.Length; i++)
             {
                 sheet.Column(i).AutoFit();
