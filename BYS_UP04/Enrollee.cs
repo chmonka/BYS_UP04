@@ -42,7 +42,8 @@ namespace BYS_UP04
 
         }
         public Enrollee(  
-            string Name, 
+            string Name,
+            byte[] disabilityScan,
             string Surname, 
             string Patronymic,
             string citizenship,
@@ -53,6 +54,8 @@ namespace BYS_UP04
             string classSchool,
             string graduation,
             double certificate,
+            byte[] orphanhoodScan,
+            byte[] numberCertificateScan,
             string sNILS,
             string disability,
             string orphanhood,
@@ -68,6 +71,7 @@ namespace BYS_UP04
             int id = Id;
             this.Id= id;
             this.name = Name;
+            DisabilityScan = disabilityScan;
             this.surname = Surname;
             this.patronymic = Patronymic;
             Citizenship = citizenship;
@@ -79,6 +83,8 @@ namespace BYS_UP04
             Graduation = graduation;
             Certificate = certificate;
             SNILS = sNILS;
+            OrphanhoodScan = orphanhoodScan;
+            NumberCertificateScan = numberCertificateScan;
             Disability = disability;
             Orphanhood = orphanhood;
             Speciality = speciality;
@@ -104,6 +110,38 @@ namespace BYS_UP04
             
             
 
+        }
+
+
+        public byte[] NumberCertificateScan
+        {
+            get => numberCertificateScan;
+            set
+            {
+                numberCertificateScan = value;
+                OnPropertyChanged(nameof(NumberCertificateScan));
+            }
+        }
+
+        public byte[] OrphanhoodScan
+        {
+            get => orphanhoodScan;
+            set
+            {
+                orphanhoodScan = value;
+                OnPropertyChanged(nameof(OrphanhoodScan));
+            }
+        }
+
+
+        public byte[] DisabilityScan
+        {
+            get => disabilityScan;
+            set
+            {
+                disabilityScan = value;
+                OnPropertyChanged(nameof(DisabilityScan));
+            }
         }
 
 

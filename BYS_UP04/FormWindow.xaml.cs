@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -133,6 +135,9 @@ namespace BYS_UP04
 
         private void OrphanhoodBox(object sender, SelectionChangedEventArgs e)
         {
+
+
+
             ComboBox combobox3 = (ComboBox)sender;
             ComboBoxItem comboBoxItem2 = (ComboBoxItem)combobox3.SelectedItem;
             if (comboBoxItem2 == NoOrphanhoodBox)
@@ -155,6 +160,56 @@ namespace BYS_UP04
         {
             Enrollee.DataBirth = DateBirth.SelectedDate.GetValueOrDefault();
         }
+
+        public void DisabilityScanClick(object sender, RoutedEventArgs e)
+        {
+            string selectedFile = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Title = "Выберите файл";
+
+            openFileDialog.Filter = "Файлы изображения (*.jpg, *.jpeg, *-png)|*.jpg;*-jpeg;*-png|Bce dalinu (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+
+            selectedFile = openFileDialog.FileName;
+            byte[]? attFile = File.ReadAllBytes(selectedFile);
+            Enrollee.DisabilityScan = attFile;
+            Enrollee myContext = new Enrollee();
+        }
+
+
+        public void OrphanhoodScanClick(object sender, RoutedEventArgs e)
+        {
+            string selectedFile = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Title = "Выберите файл";
+
+            openFileDialog.Filter = "Файлы изображения (*.jpg, *.jpeg, *-png)|*.jpg;*-jpeg;*-png|Bce dalinu (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+
+                selectedFile = openFileDialog.FileName;
+            byte[]? attFile = File.ReadAllBytes(selectedFile);
+            Enrollee.OrphanhoodScan = attFile;
+            Enrollee myContext = new Enrollee();
+        }
+
+        public void NumberCertificateScanClick(object sender, RoutedEventArgs e)
+        {
+            string selectedFile = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Title = "Выберите файл";
+
+            openFileDialog.Filter = "Файлы изображения (*.jpg, *.jpeg, *-png)|*.jpg;*-jpeg;*-png|Bce dalinu (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+
+                selectedFile = openFileDialog.FileName;
+            byte[]? attFile = File.ReadAllBytes(selectedFile);
+            Enrollee.NumberCertificateScan = attFile;
+            Enrollee myContext = new Enrollee();
+        }
+
 
 
 

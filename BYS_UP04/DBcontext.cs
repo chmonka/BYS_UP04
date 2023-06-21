@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BYS_UP04
 {
-    class DBcontext : DbContext
+    public class DBcontext : DbContext
     {
         public string path = Path.GetFullPath(@"..\..\..\");
         public DbSet<Enrollee> Enrollees { get; set; } = null;

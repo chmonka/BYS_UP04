@@ -92,6 +92,8 @@
                         Content="Загрузить"
                         Grid.Column="1" 
                         Margin="0,98,0,0" 
+                        Click="DisabilityScanClick"
+
                        />
                     
                     <Button 
@@ -102,9 +104,11 @@
                         Content="Загрузить"
                         Grid.Column="1"
                             Margin="0,8,0,0"
+                        Click="OrphanhoodScanClick" Cursor="Hand"
+                    
                          />
                     <Button 
-                       
+                       Click="NumberCertificateScanClick"
                         Width="100"
                         Height="25"
                         FontSize="12"

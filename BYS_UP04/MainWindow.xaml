@@ -56,19 +56,12 @@
                             <DataGridTextColumn Header="Окончание 9(11) классов " Binding="{Binding Graduation}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Окончание 9(11) классов(Другое)" Binding="{Binding ClassSchool}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Средний балл аттестата" Binding="{Binding Certificate}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Header="Скан">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Name="btnView" Content="View" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="СНИЛС" Binding="{Binding SNILS}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Справка об инвалидности" Binding="{Binding Disability}"></DataGridTextColumn>
                             <DataGridTemplateColumn Header="Скан">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="btnView" Content="View" />
+                                        <Button  Content="View" Click="btnView1" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -76,12 +69,19 @@
                             <DataGridTemplateColumn Header="Скан">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="btnView" Content="View" />
+                                        <Button  Click="btnView2"  Content="View" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTextColumn Header="Специальность" Binding="{Binding Speciality}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Номер аттестата" Binding="{Binding NumberCertificate}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="Скан">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button  Click="btnView3" Content="View"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="Бюджет/Небюджет" Binding="{Binding Budget}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Зачислен(-на)/Незачислен(-на)" Binding="{Binding Enlisted}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата приёма" Binding="{Binding DataReception}"></DataGridTextColumn>

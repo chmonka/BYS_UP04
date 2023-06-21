@@ -24,6 +24,8 @@ using System.Drawing;
 using System.Data;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace BYS_UP04
 {
@@ -32,7 +34,7 @@ namespace BYS_UP04
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+
 
         DBcontext dbcontext = new DBcontext();
 
@@ -132,7 +134,7 @@ namespace BYS_UP04
                     user.Disability = UserWindow.Enrollee.Disability;
                     user.Orphanhood = UserWindow.Enrollee.Orphanhood;
                     user.Speciality = UserWindow.Enrollee.Speciality;
-                    user.NumberCertificate= UserWindow.Enrollee.NumberCertificate;
+                    user.NumberCertificate = UserWindow.Enrollee.NumberCertificate;
                     user.Budget = UserWindow.Enrollee.Budget;
                     user.Enlisted = UserWindow.Enrollee.Enlisted;
                     user.DataReception = UserWindow.Enrollee.DataReception;
@@ -153,6 +155,7 @@ namespace BYS_UP04
 
 
         List<Enrollee> filterModeList = new List<Enrollee>();
+
         private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             filterModeList.Clear();
@@ -178,23 +181,134 @@ namespace BYS_UP04
                     var query = from b in db.Enrollees select b;
                     foreach (var item in query)
                     {
-                        if (item.Name.Contains(textBoxSearch.Text) || item.Surname.Contains(textBoxSearch.Text)
-                            || item.Patronymic.Contains(textBoxSearch.Text) || item.City.Contains(textBoxSearch.Text) || item.SNILS.Contains(textBoxSearch.Text))
+                        if (item.Name.Contains(textBoxSearch.Text) 
+                            || item.Surname.Contains(textBoxSearch.Text)
+                            || item.Patronymic.Contains(textBoxSearch.Text)
+                            || item.City.Contains(textBoxSearch.Text) 
+                            || item.SNILS.Contains(textBoxSearch.Text) 
+                            || item.Budget.Contains(textBoxSearch.Text) 
+                            || item.Speciality.Contains(textBoxSearch.Text)
+                            ||item.Citizenship.Contains(textBoxSearch.Text)
+                            
+                            ||item.Enlisted.Contains(textBoxSearch.Text)
+                            ||item.Floor.Contains(textBoxSearch.Text)
+                            ||item.Graduation.Contains(textBoxSearch.Text)
+                            )
                         {
                             studentList.Add(item);
                         }
-                        
+
                     }
                 }
                 StudentList.ItemsSource = studentList;
             }
 
-           
-            
         }
-        
+
+        public void btnView1(object sender, EventArgs e)
+        {
+
+
+            var selectedStudent = StudentList.SelectedItem as Enrollee;
+            ObservableCollection<Enrollee> entrants = dbcontext.Enrollees.Local.ToObservableCollection();
+           
+            SaveFileDialog openFileDialog = new SaveFileDialog();
+
+            openFileDialog.FileName = "Scan"; 
+            openFileDialog.DefaultExt = ".png"; 
+            openFileDialog.Filter = "Фaйлы изображений (*.jpg, *.jpeg, *.png, *.pdf)|*.jpg;*.jpeg;*.png;*.pdf"; 
+            Nullable<bool> result = openFileDialog.ShowDialog();
+          
+            if (result == true)
+            {
+
+                // Save document
+                string filename = openFileDialog.FileName;
+                
+                if (entrants[selectedStudent.Id - 1 ].DisabilityScan == null)
+                {
+                    MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1 ].DisabilityScan);
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "mspaint.exe";
+                startInfo.Arguments = filename;
+                Process.Start(startInfo);
+            }
+        }
+
+        public void btnView2(object sender, EventArgs e)
+        {
+
+
+            var selectedStudent = StudentList.SelectedItem as Enrollee;
+            ObservableCollection<Enrollee> entrants = dbcontext.Enrollees.Local.ToObservableCollection();
+
+            SaveFileDialog openFileDialog = new SaveFileDialog();
+
+            openFileDialog.FileName = "Scan";
+            openFileDialog.DefaultExt = ".png";
+            openFileDialog.Filter = "Фaйлы изображений (*.jpg, *.jpeg, *.png, *.pdf)|*.jpg;*.jpeg;*.png;*.pdf";
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+
+                // Save document
+                string filename = openFileDialog.FileName;
+
+                if (entrants[selectedStudent.Id - 1].OrphanhoodScan == null)
+                {
+                    MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1].OrphanhoodScan);
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "mspaint.exe";
+                startInfo.Arguments = filename;
+                Process.Start(startInfo);
+            }
+        }
+
+        public void btnView3(object sender, EventArgs e)
+        {
+
+
+            var selectedStudent = StudentList.SelectedItem as Enrollee;
+            ObservableCollection<Enrollee> entrants = dbcontext.Enrollees.Local.ToObservableCollection();
+
+            SaveFileDialog openFileDialog = new SaveFileDialog();
+
+            openFileDialog.FileName = "Scan";
+            openFileDialog.DefaultExt = ".png";
+            openFileDialog.Filter = "Фaйлы изображений (*.jpg, *.jpeg, *.png, *.pdf)|*.jpg;*.jpeg;*.png;*.pdf";
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+
+                // Save document
+                string filename = openFileDialog.FileName;
+
+                if (entrants[selectedStudent.Id - 1].NumberCertificateScan == null)
+                {
+                    MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1].NumberCertificateScan);
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "mspaint.exe";
+                startInfo.Arguments = filename;
+                Process.Start(startInfo);
+            }
+        }
     }
 }
+
            
 
         
