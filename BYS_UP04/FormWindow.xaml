@@ -393,22 +393,22 @@
                         Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
-                             materialDesign:HintAssist.Hint="Бюджет/Небюджет"
+                             materialDesign:HintAssist.Hint="Бюджет/Не бюджет"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2" >
                         <ComboBoxItem>Бюджет</ComboBoxItem>
-                        <ComboBoxItem>Небюджет</ComboBoxItem>
+                        <ComboBoxItem>Не бюджет</ComboBoxItem>
                     </ComboBox>
                     <ComboBox 
                           Text="{Binding Enlisted }"
                         Margin="0,5,0,0"
                               Width="200"
                              FontSize="12"  
-                             materialDesign:HintAssist.Hint="Зачислоен(-на)/Незачислен(-на)"
+                             materialDesign:HintAssist.Hint="Зачислоен(-на)/Не зачислен(-на)"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2" >
                         <ComboBoxItem>Зачислен(-на)</ComboBoxItem>
-                        <ComboBoxItem>Незачислен(-на)</ComboBoxItem>
+                        <ComboBoxItem>Не зачислен(-на)</ComboBoxItem>
                     </ComboBox>
                     <DatePicker  
                           x:Name="DatePriema"

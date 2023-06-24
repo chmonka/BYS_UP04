@@ -26,13 +26,15 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Microsoft.Office.Interop.Word;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace BYS_UP04
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
 
 
@@ -188,8 +190,7 @@ namespace BYS_UP04
                             || item.SNILS.Contains(textBoxSearch.Text) 
                             || item.Budget.Contains(textBoxSearch.Text) 
                             || item.Speciality.Contains(textBoxSearch.Text)
-                            ||item.Citizenship.Contains(textBoxSearch.Text)
-                            
+                            ||item.Citizenship.Contains(textBoxSearch.Text)                          
                             ||item.Enlisted.Contains(textBoxSearch.Text)
                             ||item.Floor.Contains(textBoxSearch.Text)
                             ||item.Graduation.Contains(textBoxSearch.Text)
@@ -306,6 +307,7 @@ namespace BYS_UP04
                 Process.Start(startInfo);
             }
         }
+
     }
 }
 

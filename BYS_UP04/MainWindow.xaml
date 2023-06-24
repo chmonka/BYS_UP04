@@ -82,8 +82,8 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Бюджет/Небюджет" Binding="{Binding Budget}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Зачислен(-на)/Незачислен(-на)" Binding="{Binding Enlisted}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Бюджет/Не бюджет" Binding="{Binding Budget}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Зачислен(-на)/Не зачислен(-на)" Binding="{Binding Enlisted}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата приёма" Binding="{Binding DataReception}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -92,7 +92,7 @@
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             VerticalAlignment="Center"
-                            Grid.Row="2">
+                            Grid.Row="2" Cursor="">
                     <Button 
                                 Click="Add_Click"
                                 Margin="5,60,0,0"
@@ -130,6 +130,7 @@
                                 Content="Экспорт в Excel"
                                 Grid.Column="2"
                                 Grid.Row="4"/>
+                   
                 </StackPanel>
             </Grid>
         </Border>
