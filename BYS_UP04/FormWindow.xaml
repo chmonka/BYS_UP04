@@ -310,7 +310,8 @@
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2">
                         <ComboBoxItem>Закончил(-ла) 9 класс</ComboBoxItem>
-                        <ComboBoxItem x:Name="NoClass">Закончил(-ла) 11 класс</ComboBoxItem>
+                        <ComboBoxItem >Закончил(-ла) 11 класс</ComboBoxItem>
+                        <ComboBoxItem x:Name="NoClass">Другое</ComboBoxItem>
                     </ComboBox>
 
 

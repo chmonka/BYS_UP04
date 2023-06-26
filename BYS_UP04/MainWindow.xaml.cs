@@ -234,9 +234,8 @@ namespace BYS_UP04
 
                 File.WriteAllBytes(filename, selectedStudent.DisabilityScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "mspaint.exe";
-                startInfo.Arguments = filename;
-                Process.Start(startInfo);
+                Window1 window = new Window1(selectedStudent.DisabilityScan);
+                window.Show();
             }
         }
 
@@ -268,9 +267,8 @@ namespace BYS_UP04
 
                 File.WriteAllBytes(filename, selectedStudent.OrphanhoodScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "mspaint.exe";
-                startInfo.Arguments = filename;
-                Process.Start(startInfo);
+                Window1 window = new Window1(selectedStudent.OrphanhoodScan);
+                window.Show();
             }
         }
 
@@ -302,9 +300,8 @@ namespace BYS_UP04
 
                 File.WriteAllBytes(filename, selectedStudent.NumberCertificateScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "mspaint.exe";
-                startInfo.Arguments = filename;
-                Process.Start(startInfo);
+                Window1 window = new Window1(selectedStudent.NumberCertificateScan);
+                window.Show();
             }
         }
 
