@@ -1,4 +1,4 @@
-﻿<Window x:Class="BYS_UP04.FormWindow"
+﻿ <Window x:Class="BYS_UP04.FormWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -309,8 +309,8 @@
                              materialDesign:HintAssist.Hint="Закончил только 9(11) классов"
                              BorderBrush="{DynamicResource MaterialDesignDivider}"
                              BorderThickness="2">
-                        <ComboBoxItem>Да</ComboBoxItem>
-                        <ComboBoxItem x:Name="NoClass">Нет</ComboBoxItem>
+                        <ComboBoxItem>Закончил(-ла) 9 класс</ComboBoxItem>
+                        <ComboBoxItem x:Name="NoClass">Закончил(-ла) 11 класс</ComboBoxItem>
                     </ComboBox>
 
 

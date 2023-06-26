@@ -66,7 +66,6 @@ namespace BYS_UP04
             DateTime dataReception
 
             )
-
         {
             int id = Id;
             this.Id= id;
@@ -106,10 +105,6 @@ namespace BYS_UP04
             this.dataReception = DataReception;
             this.floor=Floor;
             this.dataBirth=DataBirth;
-
-            
-            
-
         }
 
 

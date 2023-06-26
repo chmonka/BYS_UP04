@@ -119,8 +119,17 @@
                                 Content="Удалить"
                                 Grid.Column="2"
                                 Grid.Row="4"/>
+                 </StackPanel>
+                <StackPanel 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"        
+                            Grid.Row="2" Cursor="">
+                    <TextBlock  Margin="5,60,100,0">
+                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://kptc.ru/prikaz/Pravila_priema_2023.pdf">Правила приёма</Hyperlink>
+                    </TextBlock>
+
                 </StackPanel>
-                <StackPanel Grid.Row="2"  VerticalAlignment="Center"  HorizontalAlignment="Right" >
+                    <StackPanel Grid.Row="2"  VerticalAlignment="Center"  HorizontalAlignment="Right" >
                     <Button 
                                Click="CreateExcelfile"
                                 Margin="5,60,100,0"

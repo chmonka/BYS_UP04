@@ -71,7 +71,7 @@ namespace BYS_UP04
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
-            Enrollee? Staff = StudentList.SelectedItem as Enrollee;
+            Enrollee Staff = StudentList.SelectedItem as Enrollee;
 
             if (Staff is null) return;
             dbcontext.Enrollees.Remove(Staff);
@@ -226,13 +226,13 @@ namespace BYS_UP04
                 // Save document
                 string filename = openFileDialog.FileName;
                 
-                if (entrants[selectedStudent.Id - 1 ].DisabilityScan == null)
+                if (selectedStudent.DisabilityScan == null)
                 {
                     MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1 ].DisabilityScan);
+                File.WriteAllBytes(filename, selectedStudent.DisabilityScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = "mspaint.exe";
                 startInfo.Arguments = filename;
@@ -260,13 +260,13 @@ namespace BYS_UP04
                 // Save document
                 string filename = openFileDialog.FileName;
 
-                if (entrants[selectedStudent.Id - 1].OrphanhoodScan == null)
+                if (selectedStudent.OrphanhoodScan == null)
                 {
                     MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1].OrphanhoodScan);
+                File.WriteAllBytes(filename, selectedStudent.OrphanhoodScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = "mspaint.exe";
                 startInfo.Arguments = filename;
@@ -294,13 +294,13 @@ namespace BYS_UP04
                 // Save document
                 string filename = openFileDialog.FileName;
 
-                if (entrants[selectedStudent.Id - 1].NumberCertificateScan == null)
+                if (selectedStudent.NumberCertificateScan == null)
                 {
                     MessageBox.Show("Скан справки о сиротстве/опекунстве не был загружен!", Title = "Oшибкa!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                File.WriteAllBytes(filename, entrants[selectedStudent.Id - 1].NumberCertificateScan);
+                File.WriteAllBytes(filename, selectedStudent.NumberCertificateScan);
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = "mspaint.exe";
                 startInfo.Arguments = filename;
@@ -308,6 +308,26 @@ namespace BYS_UP04
             }
         }
 
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start {e.Uri.AbsoluteUri}",
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            e.Handled = true;
+        }
     }
 }
 
